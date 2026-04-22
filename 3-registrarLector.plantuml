@@ -1,0 +1,59 @@
+@startuml
+!theme vibrant
+header PAV
+
+
+title Caso de uso 1
+
+group DSS - Registrar lector
+Actor Funcionario
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTLector
+-----------
+ID: string
+Nombre: string
+password: string
+Fecha: DTFecha
+
+end note
+
+
+
+loop mientras no cancela && !inicio
+
+Funcionario -> .Sistema : inicio : registrarLector (id:String,pass:String) : bool
+
+note right: El sistema recuerda ID y Password
+
+|||
+|||
+opt cancela
+Funcionario -> .Sistema : cancelarInicioSesion()
+note right: Cancela limpia la memoria
+end
+
+
+
+
+
+end
+
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTFecha
+-----------
+dia: integer
+mes: string
+año: integer
+
+end note
+
+
+end
+|||
+|||
+|||
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+!theme vibrant
+header PAV
+
+
+title Ejemplo 1
+
+group DSS - Cerrar sesión
+
+Actor Usuario
+
+note left of Usuario #aqua
+end note
+
+note left of Usuario #aqua
+end note
+
+
+Usuario -> .Sistema : cerrarSesion()
+note right: El sistema libera la memoria
+
+
+
+|||
+|||
+|||
+end
+|||
+|||
+|||
+@enduml
