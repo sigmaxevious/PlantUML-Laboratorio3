@@ -1,0 +1,32 @@
+@startuml Bedelia
+!theme vibrant
+header PAV - Práctico DSS y Contratos
+
+title DSS - 
+
+group DSS - Inscribir estudiantes a curso - Sin Memoria
+|||
+|||
+actor Usuario
+
+
+
+Usuario -> .Sistema : nuevoCurso(nombre: string, codigo: integer)
+
+loop mas estudiantes
+    |||
+    opt no registrado
+        Usuario -> .Sistema : nro:= nuevoEstudiante(ci : string, nombre: string) : Integer
+    
+    end
+    |||
+    Usuario -> .Sistema : inscribir(nro : integer, codigo: integer)
+    
+end
+
+|||
+Usuario -> .Sistema : darCantInscriptos(codigo : integer) : Integer
+|||
+
+end
+@enduml

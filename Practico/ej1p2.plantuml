@@ -1,0 +1,30 @@
+@startuml Bedelia_ConMemoria
+!theme vibrant
+header PAV - Laboratorio 3
+
+title DSS 
+
+group DSS - Inscribir estudiantes a curso - Con memoria
+|||
+actor Usuario
+|||
+
+Usuario -> .Sistema : nuevoCurso(nombre: string, codigo: integer)
+note right: El sistema recuerda de codigo
+loop mas estudiantes
+    |||
+    opt no está registrado
+        Usuario -> .Sistema : numero= nuevoEstudiante(ci: string, nombre: string) : Integer
+    end
+    |||
+    Usuario -> .Sistema : inscribir(numero: integer,)
+    |||
+end
+
+|||
+Usuario -> .Sistema : darCantInscriptos : Integer
+note right: El sistema libera la memoria
+|||
+
+end
+@enduml
