@@ -1,21 +1,42 @@
-@startuml
-/'El caso de uso comienza cuando un funcionario desea consultar los préstamos
+@startuml consultarPrestamoLector
+
+/' El caso de uso comienza cuando un funcionario desea consultar los préstamos
 realizados por un lector. El sistema solicita el identificador del lector y, una vez
 ingresado, muestra su nombre junto con la lista de préstamos asociados. Para
 cada préstamo, el sistema muestra el código y el título del material, la fecha del
-préstamo y la cantidad de días permitidos para la devolución'/
+préstamo y la cantidad de días permitidos para la devolución '/
 
+!theme vibrant
+header PAV - Laboratorio 3
 
-title Caso de uso 7
+title DSS - Consultar Préstamos por Lector
 
-group DSS - Consultar préstamos por lector
-Actor Funcionario
+group DSS - Consultar Préstamos por Lector
 |||
+actor Funcionario
 
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTPrestamo
+-----------
+codigoMaterial: string
+tituloMaterial: string
+fechaPrestamo: DTFecha
+diasPermitidos: integer
+end note
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTFecha
+-----------
+dia: integer
+mes: string
+anio: integer
+end note
+
+Funcionario -> ":Sistema" : consultarPrestamosLector(idLector: integer) : Set(DTPrestamo)
+|||
 
 end
-|||
-|||
-|||
-
 @enduml

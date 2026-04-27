@@ -14,7 +14,7 @@ note right: El sistema recuerda de codigo
 loop mas estudiantes
     |||
     opt no está registrado
-        Usuario -> .Sistema : numero= nuevoEstudiante(ci: string, nombre: string) : Integer
+        Usuario -> .Sistema : numero:= nuevoEstudiante(ci: string, nombre: string) : Integer
     end
     |||
     Usuario -> .Sistema : inscribir(numero: integer,)

@@ -1,21 +1,29 @@
-@startuml
+@startuml eliminarLector
 /' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
 sesión, desea eliminar un lector del sistema. Para ello, el sistema solicita el
 identificador del lector y luego muestra su nombre. A continuación, el sistema
 solicita confirmación de la operación. Si el funcionario confirma, el sistema
 elimina al lector junto con sus préstamos asociados.'/
 
+!theme vibrant
+header PAV - Laboratorio 3
 
-title Caso de uso 7
+title DSS - Eliminar Lector
 
-group DSS - Eliminar lector
-Actor Funcionario
+group DSS - Eliminar Lector
+|||
+actor Funcionario
 |||
 
+Funcionario -> ":Sistema" : ingresarIdentificadorLector(idLector: string) : string
+note right: El sistema recuerda el identificador del lector
+|||
+
+opt confirma
+    Funcionario -> ":Sistema" : confirmarEliminacion()
+    note right: El sistema elimina el lector y sus préstamos y libera la memoria
+    |||
+end
 
 end
-|||
-|||
-|||
-
 @enduml

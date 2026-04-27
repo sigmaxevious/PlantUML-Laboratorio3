@@ -1,4 +1,5 @@
-@startuml
+@startuml registrarMaterial
+
 /' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
 sesión, desea registrar un material. El sistema solicita primero los datos generales
 del material: código, título y año de publicación, y luego pide indicar el tipo de
@@ -7,18 +8,63 @@ además el autor y la cantidad de páginas; si se trata de una revista, solicita
 número de edición y si es de publicación mensual. Una vez ingresada la
 información correspondiente, el sistema la muestra para confirmación y, si el
 funcionario confirma, registra el material'/
+!theme vibrant
+header PAV - Laboratorio 3
 
+title DSS - Registrar Material
 
-title Caso de uso 5
-
-group DSS - Registrar material
-Actor Funcionario
+group DSS - Registrar Material
+|||
+actor Funcionario
 |||
 
+note left of Funcionario #aqua
+<<Datatypes>>
+DTMaterial
+-----------
+codigo: string
+titulo: string
+anio: integer
+end note
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTLibro
+-----------
+autor: string
+cantPaginas: integer
+end note
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTRevista
+-----------
+numEdicion: integer
+esMensual: boolean
+end note
+
+Funcionario -> ":Sistema" : ingresarDatosMaterial(codigo: string, titulo: string, anio: integer)
+note right: El sistema recuerda el código, título y año
+|||
+
+alt es Libro
+    |||
+    Funcionario -> ":Sistema" : resumen:= ingresarDatosLibro(autor: string, cantPaginas: integer) : DTMaterial
+    note right: El sistema recuerda los datos específicos del tipo
+    |||
+else es Revista
+    |||
+    Funcionario -> ":Sistema" : resumen :=ingresarDatosRevista(numEdicion: integer, esMensual: boolean) : DTMaterial
+    note right: El sistema recuerda los datos específicos del tipo
+    |||
+end
+
+|||
+
+
+Funcionario -> ":Sistema" : confirmarRegistro()
+note right: El sistema registra el material y libera la memoria
+|||
 
 end
-|||
-|||
-|||
-
 @enduml
