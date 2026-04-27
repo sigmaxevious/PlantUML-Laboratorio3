@@ -1,4 +1,5 @@
-@startuml
+@startuml registrarFuncionario
+
 /' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
 sesión, desea registrar un nuevo funcionario. El sistema solicita el identificador, el
 nombre, la contraseña y el número de empleado del nuevo funcionario. Luego de
@@ -6,16 +7,45 @@ ingresar esta información, el sistema la presenta para confirmación. Si el
 funcionario confirma, el sistema registra al nuevo funcionario '/
 
 
-title Caso de uso 4
+!theme vibrant
+header PAV
 
-group DSS - Registrar funcionario
+title Caso de uso - Registrar Funcionario
+
+group DSS - Registrar Funcionario
 Actor Funcionario
-|||
 
+note left of Funcionario #aqua
+<<Datatypes>>
+DTFuncionario
+-----------
+ID: string
+Nombre: string
+password: string
+numEmpleado: integer
+end note
+
+loop mientras no cancela && !confirmado
+
+    Funcionario -> .Sistema : ingresarDatos(id:String, nombre:String, password:String, numEmpleado:Integer) : DTFuncionario
+    note right: El sistema recuerda los datos ingresados\ny los presenta para confirmación
+
+    |||
+
+    opt cancela
+        Funcionario -> .Sistema : cancelarRegistro()
+        note right: Cancela limpia la memoria
+    end
 
 end
+
 |||
+
+Funcionario -> .Sistema : confirmarRegistro() : bool
+note right: El sistema registra al nuevo funcionario
+
 |||
 |||
 
+end
 @enduml

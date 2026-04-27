@@ -1,24 +1,69 @@
-@startuml
-/'El caso de uso comienza cuando el actor desea consultar la información de un
-material. El sistema muestra la lista de materiales registrados indicando su código
-y título, y el actor selecciona uno de ellos. A continuación, el sistema muestra el
-código, el título, el año de
-publicación, el tipo de material y el puntaje promedio. En caso de tratarse de un
-libro, también muestra el autor y la cantidad de páginas; en caso de tratarse de
-una revista, muestra el número de edición y si es de publicación mensua '/
+@startuml verInformacionMaterial
+!theme vibrant
+header PAV
 
+title Caso de uso - Ver Información de Material
 
-title Caso de uso 7
+group DSS - Ver Información de Material
+Actor Actor
 
-group DSS - Consultar préstamos por lector
-Actor Funcionario
-Actor Lector
+note left of Actor #aqua
+<<Datatypes>>
+DTMaterialResumen
+-----------
+codigo: string
+titulo: string
+end note
+
+note left of Actor #aqua
+<<Datatypes>>
+DTMaterialDetalle
+-----------
+codigo: string
+titulo: string
+anioPublicacion: integer
+tipoMaterial: string
+puntajePromedio: float
+end note
+
+note left of Actor #aqua
+<<Datatypes>>
+DTLibro
+-----------
+autor: string
+cantidadPaginas: integer
+end note
+
+note left of Actor #aqua
+<<Datatypes>>
+DTRevista
+-----------
+numeroEdicion: integer
+esMensual: boolean
+end note
+
+Actor -> .Sistema : listarMateriales() : Lista<DTMaterialResumen>
+note right: El sistema muestra la lista de materiales\ncon código y título
+
 |||
 
+Actor -> .Sistema : seleccionarMaterial(codigo:String) : DTMaterialDetalle
+note right: El sistema muestra código, título, año de publicación,\ntipo de material y puntaje promedio
+
+|||
+
+opt es Libro
+    Actor -> .Sistema : obtenerDetalleLibro(codigo:String) : DTLibro
+    note right: El sistema muestra autor y cantidad de páginas
+end
+
+opt es Revista
+    Actor -> .Sistema : obtenerDetalleRevista(codigo:String) : DTRevista
+    note right: El sistema muestra número de edición\ny si es de publicación mensual
+end
+
+|||
+|||
 
 end
-|||
-|||
-|||
-
 @enduml

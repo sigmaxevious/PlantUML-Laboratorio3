@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @startuml
 /'El caso de uso comienza cuando un funcionario, que previamente ha iniciado
 sesión, desea registrar un préstamo. Para ello, el sistema solicita el identificador
@@ -21,4 +22,84 @@ end
 |||
 |||
 
+=======
+@startuml registrarPrestamo
+!theme vibrant
+header PAV
+
+title Caso de uso - Registrar Préstamo
+
+group DSS - Registrar Préstamo
+Actor Funcionario
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTLector
+-----------
+ID: string
+Nombre: string
+password: string
+Fecha: DTFecha
+end note
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTMaterial
+-----------
+codigo: string
+titulo: string
+autor: string
+disponible: boolean
+end note
+
+note left of Funcionario #aqua
+<<Datatypes>>
+DTFecha
+-----------
+dia: integer
+mes: string
+año: integer
+end note
+
+loop mientras no cancela && !confirmado
+
+    Funcionario -> .Sistema : ingresarIDLector(id:String)
+    .Sistema --> Funcionario : mostrarDatosLector(DTLector)
+    note right: El sistema muestra los datos básicos del lector
+
+    |||
+
+    Funcionario -> .Sistema : ingresarCodigoMaterial(codigo:String)
+    .Sistema --> Funcionario : mostrarDatosMaterial(DTMaterial)
+    note right: El sistema muestra la información del material
+
+    |||
+
+    Funcionario -> .Sistema : ingresarDatosPrestamo(fechaPrestamo:DTFecha, diasDevolucion:Integer)
+    note right: El sistema recuerda fecha y días de devolución
+
+    |||
+
+    .Sistema --> Funcionario : presentarDatosPrestamo(DTLector, DTMaterial, fechaPrestamo, diasDevolucion)
+    note right: El sistema presenta todos los datos para confirmación
+
+    |||
+
+    opt cancela
+        Funcionario -> .Sistema : cancelarRegistro()
+        note right: Cancela limpia la memoria
+    end
+
+end
+
+|||
+
+Funcionario -> .Sistema : confirmarPrestamo() : bool
+note right: El sistema registra el préstamo
+
+|||
+|||
+
+end
+>>>>>>> 44540b2 (4, 6 ,8 uml version prelim)
 @enduml
