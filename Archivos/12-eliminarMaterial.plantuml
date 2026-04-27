@@ -1,0 +1,21 @@
+@startuml
+/' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
+sesión, desea eliminar un material. El sistema muestra la lista de materiales
+registrados indicando su código y título, y el funcionario selecciona uno. Luego, el
+sistema muestra la información del material seleccionado y solicita confirmación
+de la operación. Si el funcionario confirma, el sistema elimina el material.'/
+
+
+title Caso de uso 7
+
+group DSS - Eliminar material
+Actor Funcionario
+|||
+
+
+end
+|||
+|||
+|||
+
+@enduml

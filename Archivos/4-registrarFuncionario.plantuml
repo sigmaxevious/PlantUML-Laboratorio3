@@ -1,0 +1,21 @@
+@startuml
+/' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
+sesión, desea registrar un nuevo funcionario. El sistema solicita el identificador, el
+nombre, la contraseña y el número de empleado del nuevo funcionario. Luego de
+ingresar esta información, el sistema la presenta para confirmación. Si el
+funcionario confirma, el sistema registra al nuevo funcionario '/
+
+
+title Caso de uso 4
+
+group DSS - Registrar funcionario
+Actor Funcionario
+|||
+
+
+end
+|||
+|||
+|||
+
+@enduml

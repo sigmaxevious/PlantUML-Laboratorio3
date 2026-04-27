@@ -1,0 +1,24 @@
+@startuml
+/' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
+sesión, desea registrar un material. El sistema solicita primero los datos generales
+del material: código, título y año de publicación, y luego pide indicar el tipo de
+material, que puede ser libro o revista. Si se trata de un libro, el sistema solicita
+además el autor y la cantidad de páginas; si se trata de una revista, solicita el
+número de edición y si es de publicación mensual. Una vez ingresada la
+información correspondiente, el sistema la muestra para confirmación y, si el
+funcionario confirma, registra el material'/
+
+
+title Caso de uso 5
+
+group DSS - Registrar material
+Actor Funcionario
+|||
+
+
+end
+|||
+|||
+|||
+
+@enduml

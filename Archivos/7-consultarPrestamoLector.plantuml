@@ -1,0 +1,21 @@
+@startuml
+/'El caso de uso comienza cuando un funcionario desea consultar los préstamos
+realizados por un lector. El sistema solicita el identificador del lector y, una vez
+ingresado, muestra su nombre junto con la lista de préstamos asociados. Para
+cada préstamo, el sistema muestra el código y el título del material, la fecha del
+préstamo y la cantidad de días permitidos para la devolución'/
+
+
+title Caso de uso 7
+
+group DSS - Consultar préstamos por lector
+Actor Funcionario
+|||
+
+
+end
+|||
+|||
+|||
+
+@enduml

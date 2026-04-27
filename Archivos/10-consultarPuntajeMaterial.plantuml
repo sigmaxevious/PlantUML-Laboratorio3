@@ -1,0 +1,22 @@
+@startuml
+/' El caso de uso comienza cuando el actor desea consultar los puntajes de un
+material. El sistema muestra la lista de materiales registrados indicando su código
+y título, y el actor selecciona uno de ellos. A continuación, el sistema muestra el
+título del material, su puntaje promedio y la cantidad total de puntajes
+registrados para dicho material'/
+
+
+title Caso de uso 7
+
+group DSS - Consultar puntaje de material
+Actor Lector 
+Actor Funcionario
+|||
+
+
+end
+|||
+|||
+|||
+
+@enduml

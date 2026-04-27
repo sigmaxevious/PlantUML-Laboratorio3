@@ -1,0 +1,21 @@
+@startuml
+/' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
+sesión, desea eliminar un lector del sistema. Para ello, el sistema solicita el
+identificador del lector y luego muestra su nombre. A continuación, el sistema
+solicita confirmación de la operación. Si el funcionario confirma, el sistema
+elimina al lector junto con sus préstamos asociados.'/
+
+
+title Caso de uso 7
+
+group DSS - Eliminar lector
+Actor Funcionario
+|||
+
+
+end
+|||
+|||
+|||
+
+@enduml

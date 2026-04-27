@@ -1,0 +1,22 @@
+@startuml
+/'El caso de uso comienza cuando un lector, que previamente ha iniciado sesión,
+desea puntuar un material. El sistema muestra la lista de materiales registrados
+indicando su código y título, y el lector selecciona uno. Si el lector ya había
+puntuado previamente ese material, el sistema muestra el puntaje anterior.
+Luego, el sistema solicita el nuevo valor del puntaje, el lector lo ingresa y el
+sistema registra el puntaje o actualiza el ya existente, según corresponda '/
+
+
+title Caso de uso 7
+
+group DSS - Puntuar material
+Actor Lector
+|||
+
+
+end
+|||
+|||
+|||
+
+@enduml
