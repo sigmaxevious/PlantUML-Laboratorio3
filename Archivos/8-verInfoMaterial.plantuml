@@ -1,11 +1,22 @@
 @startuml verInformacionMaterial
+
+/' El caso de uso comienza cuando el actor desea consultar la información de un
+ material. El sistema muestra la lista de materiales registrados indicando su código
+ y título, y el actor selecciona uno de ellos. A continuación, el sistema muestra el
+ código, el título, el año de
+ publicación, el tipo de material y el puntaje promedio. En caso de tratarse de un
+ libro, también muestra el autor y la cantidad de páginas; en caso de tratarse de
+ una revista, muestra el número de edición y si es de publicación mensual. '/
+
 !theme vibrant
 header PAV
 
-title Caso de uso - Ver Información de Material
+title Caso de uso - 8- Ver Información de Material
 
 group DSS - Ver Información de Material
 Actor Actor
+
+' El actor puede ser un funcionario o un lector, pero para simplificar se representa como Actor
 
 note left of Actor #aqua
 <<Datatypes>>

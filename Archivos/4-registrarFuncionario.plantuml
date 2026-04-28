@@ -10,7 +10,7 @@ funcionario confirma, el sistema registra al nuevo funcionario '/
 !theme vibrant
 header PAV
 
-title Caso de uso - Registrar Funcionario
+title Caso de uso - 4 - Registrar Funcionario
 
 group DSS - Registrar Funcionario
 Actor Funcionario

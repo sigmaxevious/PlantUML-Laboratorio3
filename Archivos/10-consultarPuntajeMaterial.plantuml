@@ -6,13 +6,35 @@ título del material, su puntaje promedio y la cantidad total de puntajes
 registrados para dicho material'/
 
 
-title Caso de uso 7
+title Caso de uso 10
 
 group DSS - Consultar puntaje de material
-Actor Lector 
-Actor Funcionario
+Actor Actor
+' El actor puede ser un funcionario o un lector, pero para simplificar se representa como Actor
 |||
+note left of Actor #aqua
+<<Datatypes>>
+DTMaterialResumen
+-----------
+codigo: string
+titulo: string
+end note
 
+note left of Actor #aqua
+<<Datatypes>>
+DTMaterialDetalle
+-----------
+titulo: string
+totalPuntajes: integer
+puntajePromedio: float
+
+end note
+
+Actor -> .Sistema : listarMateriales() : Lista<DTMaterialResumen>
+note right: El sistema muestra la lista de materiales, con código y titulo
+
+Actor -> .Sistema : seleccionarMaterial(codigo:String) : DTMaterialDetalle
+note right: El sistema muestra el título del material, su puntaje promedio y la cantidad de puntajes
 
 end
 |||

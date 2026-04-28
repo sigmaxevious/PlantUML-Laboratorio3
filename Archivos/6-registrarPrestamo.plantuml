@@ -1,18 +1,8 @@
 @startuml registrarPrestamo
-
-/'El caso de uso comienza cuando un funcionario, que previamente ha iniciado
-sesión, desea registrar un préstamo. Para ello, el sistema solicita el identificador
-del lector y muestra sus datos básicos. A continuación, solicita el código del
-material y muestra la información correspondiente a dicho material. Luego, el
-sistema solicita la fecha en la que se realiza el préstamo y la cantidad de días
-permitidos para la devolución. Una vez ingresados estos datos, el sistema los
-presenta para confirmación y, si el
-funcionario confirma, registra el préstamo.'/
-
 !theme vibrant
 header PAV
 
-title Caso de uso - Registrar Préstamo
+title Caso de uso - 6 - Registrar Préstamo
 
 group DSS - Registrar Préstamo
 |||
@@ -44,34 +34,37 @@ mes: string
 anio: integer
 end note
 
-note left of Funcionario #aqua
-<<Datatypes>>
-DTPrestamo
------------
-lector: DTLector
-material: DTMaterial
-fechaPrestamo: DTFecha
-diasDevolucion: integer
-end note
+loop mientras no cancela && !confirmado
 
-Funcionario -> .Sistema : ingresarIDLector(id: string) : DTLector
-note right: El sistema recuerda el lector
-|||
+    Funcionario -> .Sistema : ingresarIDLector(id:String) : DTLector
+    note right: El sistema retorna los datos básicos del lector
 
-Funcionario -> .Sistema : ingresarCodigoMaterial(codigo: string) : DTMaterial
-note right: El sistema recuerda el material
-|||
-
-Funcionario -> .Sistema : ingresarDatosPrestamo(fechaPrestamo: DTFecha, diasDevolucion: integer) : DTPrestamo
-note right: El sistema recuerda fecha y días de devolución
-|||
-
-opt confirma
-    Funcionario -> .Sistema : confirmarPrestamo()
-    note right: El sistema registra el préstamo y libera la memoria
     |||
+
+    Funcionario -> .Sistema : ingresarCodigoMaterial(codigo:String) : DTMaterial
+    note right: El sistema retorna la información del material
+
+    |||
+
+    Funcionario -> .Sistema : ingresarDatosPrestamo(fechaPrestamo:DTFecha, diasDevolucion:Integer) : DTDatosPrestamo
+    note right: El sistema recuerda fecha y días de devolución\ny presenta los datos para confirmación
+
+    |||
+
+    opt cancela
+        Funcionario -> .Sistema : cancelarRegistro()
+        note right: Cancela limpia la memoria
+    end
+
 end
 
 |||
+
+Funcionario -> .Sistema : confirmarPrestamo() : bool
+note right: El sistema registra el préstamo
+
+|||
+|||
+
 end
 @enduml
