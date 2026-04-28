@@ -1,20 +1,30 @@
 @startuml registrarPrestamo
+
+/'El caso de uso comienza cuando un funcionario, que previamente ha iniciado
+sesión, desea registrar un préstamo. Para ello, el sistema solicita el identificador
+del lector y muestra sus datos básicos. A continuación, solicita el código del
+material y muestra la información correspondiente a dicho material. Luego, el
+sistema solicita la fecha en la que se realiza el préstamo y la cantidad de días
+permitidos para la devolución. Una vez ingresados estos datos, el sistema los
+presenta para confirmación y, si el
+funcionario confirma, registra el préstamo.'/
+
 !theme vibrant
 header PAV
 
 title Caso de uso - Registrar Préstamo
 
 group DSS - Registrar Préstamo
-Actor Funcionario
+|||
+actor Funcionario
+|||
 
 note left of Funcionario #aqua
 <<Datatypes>>
 DTLector
 -----------
-ID: string
-Nombre: string
-password: string
-Fecha: DTFecha
+id: string
+nombre: string
 end note
 
 note left of Funcionario #aqua
@@ -23,8 +33,6 @@ DTMaterial
 -----------
 codigo: string
 titulo: string
-autor: string
-disponible: boolean
 end note
 
 note left of Funcionario #aqua
@@ -33,47 +41,37 @@ DTFecha
 -----------
 dia: integer
 mes: string
-año: integer
+anio: integer
 end note
 
-loop mientras no cancela && !confirmado
+note left of Funcionario #aqua
+<<Datatypes>>
+DTPrestamo
+-----------
+lector: DTLector
+material: DTMaterial
+fechaPrestamo: DTFecha
+diasDevolucion: integer
+end note
 
-    Funcionario -> .Sistema : ingresarIDLector(id:String)
-    .Sistema --> Funcionario : mostrarDatosLector(DTLector)
-    note right: El sistema muestra los datos básicos del lector
+Funcionario -> .Sistema : ingresarIDLector(id: string) : DTLector
+note right: El sistema recuerda el lector
+|||
 
+Funcionario -> .Sistema : ingresarCodigoMaterial(codigo: string) : DTMaterial
+note right: El sistema recuerda el material
+|||
+
+Funcionario -> .Sistema : ingresarDatosPrestamo(fechaPrestamo: DTFecha, diasDevolucion: integer) : DTPrestamo
+note right: El sistema recuerda fecha y días de devolución
+|||
+
+opt confirma
+    Funcionario -> .Sistema : confirmarPrestamo()
+    note right: El sistema registra el préstamo y libera la memoria
     |||
-
-    Funcionario -> .Sistema : ingresarCodigoMaterial(codigo:String)
-    .Sistema --> Funcionario : mostrarDatosMaterial(DTMaterial)
-    note right: El sistema muestra la información del material
-
-    |||
-
-    Funcionario -> .Sistema : ingresarDatosPrestamo(fechaPrestamo:DTFecha, diasDevolucion:Integer)
-    note right: El sistema recuerda fecha y días de devolución
-
-    |||
-
-    .Sistema --> Funcionario : presentarDatosPrestamo(DTLector, DTMaterial, fechaPrestamo, diasDevolucion)
-    note right: El sistema presenta todos los datos para confirmación
-
-    |||
-
-    opt cancela
-        Funcionario -> .Sistema : cancelarRegistro()
-        note right: Cancela limpia la memoria
-    end
-
 end
 
 |||
-
-Funcionario -> .Sistema : confirmarPrestamo() : bool
-note right: El sistema registra el préstamo
-
-|||
-|||
-
 end
 @enduml

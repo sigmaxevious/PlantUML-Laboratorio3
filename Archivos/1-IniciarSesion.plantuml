@@ -1,61 +1,35 @@
 @startuml iniciarSesion
+
+/'El caso de uso comienza cuando un usuario, que no tiene una sesión iniciada,
+desea ingresar al sistema. Para ello, el sistema solicita su identificador y su
+contraseña. El usuario ingresa ambos datos y, si la contraseña es correcta, el
+sistema inicia la sesión. En caso contrario, el sistema informa que los datos
+ingresados no son válidos y el usuario puede volver a intentar o cancelar el caso
+de uso.'/
 !theme vibrant
-header PAV
+header PAV - Laboratorio 3
 
+title DSS - Iniciar Sesión
 
-title Ejemplo 1
-
-group DSS - Escribir email
-
-Actor Usuario
-
-note left of Usuario #aqua
-<<Datatypes>>
-DTContacto
------------
-Nombre: string
-email: string
-end note
-
-note left of Usuario #aqua
-<<Datatypes>>
-DTContactoTipo
------------
-email: string
-tipo: TipoContacto
-end note
-
-note right of .Sistema #yellow
-<<Ennumeration>>
-TipoContacto
------------
-Principal
-Con Copia
-Con Copia Oculta
-end note
-
-Usuario -> .Sistema : escribirEmail (cuerpo:String,asunto:String) : Set (DTContacto)
-note right: El sistema recuerda cuerpo y asunto 
+group DSS - Iniciar Sesión
 |||
+actor Usuario
 |||
-Usuario -> .Sistema : elegirContactos (contactos:set(DTContactoConTipo))
-note right: El sistema recuerda contactos elegidos 
-|||
-|||
-opt [si si lo desea]
-Usuario -> .Sistema : agregarDestinatarios (destinatarios:set(DTContactoConTipo))
-note right: El sistema recuerda destinatarios
+
+loop mientras no cancela && !sesionIniciada
+
+    Usuario -> .Sistema : sesionIniciada := iniciarSesion(id: string, password: string) : bool
+    note right: El sistema recuerda la sesión del usuario si los datos son válidos
+    |||
+
+    opt cancela
+        Usuario -> .Sistema : cancelarInicioSesion()
+        note right: Cancela limpia la memoria
+    end
+    |||
+
 end
-|||
-|||
-Usuario -> .Sistema : enviarCorreo()
-note right: El sistema libera la memoria
 
-|||
-|||
 |||
 end
-|||
-|||
-|||
 @enduml
