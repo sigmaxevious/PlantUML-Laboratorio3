@@ -11,7 +11,39 @@ title Caso de uso 7
 group DSS - Eliminar material
 Actor Funcionario
 |||
+note left of Funcionario #aqua
+<<Datatypes>>
+DTMaterialResumen
+-----------
+codigo: string
+titulo: string
+end note
 
+note left of Funcionario #aqua
+<<Datatypes>>
+DTMaterialDetalle
+-----------
+codigo: string
+titulo: string
+anioPublicacion: integer
+tipoMaterial: string
+puntajePromedio: float
+end note
+
+
+Funcionario -> .Sistema : listarMateriales() : Lista<DTMaterialResumen>
+note right: El sistema muestra la lista de materiales, con código y titulo
+
+Funcionario -> .Sistema : seleccionarMaterial(codigo: String) : DTMaterialDetalle
+note right: El sistema muestra la información del material seleccionado y solicita confirmación
+
+opt cancela
+        Funcionario -> .Sistema : cancelarOperacion()
+        note right: Cancela el borrado
+    end
+
+Funcionario -> .Sistema : confirmarEliminacion() : bool
+note right : El sistema elimina el material
 
 end
 |||
