@@ -16,7 +16,7 @@ note left of Usuario #aqua
 end note
 
 
-Usuario -> .Sistema : cerrarSesion()
+Usuario -> ":Sistema" : cerrarSesion()
 note right: El sistema libera la memoria
 
 

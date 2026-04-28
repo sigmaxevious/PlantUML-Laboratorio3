@@ -23,14 +23,14 @@ end note
 
 loop mientras no cancela && !inicio
 
-Funcionario -> .Sistema : inicio : registrarLector (id:String,pass:String) : bool
+Funcionario -> ":Sistema" : inicio : registrarLector (id:String,pass:String) : bool
 
 note right: El sistema recuerda ID y Password
 
 |||
 |||
 opt cancela
-Funcionario -> .Sistema : cancelarInicioSesion()
+Funcionario -> ":Sistema" : cancelarInicioSesion()
 note right: Cancela limpia la memoria
 end
 

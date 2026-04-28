@@ -53,23 +53,23 @@ numeroEdicion: integer
 esMensual: boolean
 end note
 
-Actor -> .Sistema : listarMateriales() : Lista<DTMaterialResumen>
+Actor -> ":Sistema" : listarMateriales() : Lista<DTMaterialResumen>
 note right: El sistema muestra la lista de materiales\ncon código y título
 
 |||
 
-Actor -> .Sistema : seleccionarMaterial(codigo:String) : DTMaterialDetalle
+Actor -> ":Sistema" : seleccionarMaterial(codigo:String) : DTMaterialDetalle
 note right: El sistema muestra código, título, año de publicación,\ntipo de material y puntaje promedio
 
 |||
 
 opt es Libro
-    Actor -> .Sistema : obtenerDetalleLibro(codigo:String) : DTLibro
+    Actor -> ":Sistema" : obtenerDetalleLibro(codigo:String) : DTLibro
     note right: El sistema muestra autor y cantidad de páginas
 end
 
 opt es Revista
-    Actor -> .Sistema : obtenerDetalleRevista(codigo:String) : DTRevista
+    Actor -> ":Sistema" : obtenerDetalleRevista(codigo:String) : DTRevista
     note right: El sistema muestra número de edición\ny si es de publicación mensual
 end
 
