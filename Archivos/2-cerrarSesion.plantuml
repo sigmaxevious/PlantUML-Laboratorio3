@@ -17,12 +17,7 @@ end note
 
 
 Usuario -> ":Sistema" : cerrarSesion()
-note right: El sistema elimina la sesión activa.
 
-
-
-|||
-|||
 |||
 end
 |||

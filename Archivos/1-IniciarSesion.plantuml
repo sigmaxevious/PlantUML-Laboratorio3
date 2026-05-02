@@ -11,7 +11,7 @@ header PAV - Laboratorio 3
 
 title Caso de uso 1 - Iniciar Sesión
 
-group DSS - Iniciar Sesión - con memoria
+group DSS - Iniciar Sesión - sin memoria
 |||
 actor Usuario
 |||
@@ -24,7 +24,6 @@ loop no cancela && !sesionIniciada
 
     opt cancela
         Usuario -> .Sistema : cancelar()
-        note right: Cancela limpia la memoria
     end
     |||
 

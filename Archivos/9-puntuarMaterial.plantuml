@@ -23,7 +23,7 @@ DTMaterial
 codigo: string
 titulo: string
 end note
-loop no cancela || !puntajeIngresado
+loop no cancela && !puntajeIngresado
 Lector -> ":Sistema" : listarMateriales() : Set(DTMaterial)
 |||
 
@@ -35,7 +35,7 @@ opt cancela
         note right: Cancela limpia la memoria
     end
 Lector -> ":Sistema" : puntajeIngresado:= ingresarPuntaje(puntaje: integer): bool
-note right: El sistema registra o actualiza el puntaje y libera la memoria
+note right: El sistema recuerda el puntaje 
 |||
 
 
