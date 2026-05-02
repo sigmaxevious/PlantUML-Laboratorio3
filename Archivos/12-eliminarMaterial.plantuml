@@ -10,7 +10,7 @@ de la operación. Si el funcionario confirma, el sistema elimina el material.'/
 
 title Eliminar Material - Caso de uso 12
 
-group DSS - Eliminar material
+group DSS - Eliminar material - con memoria
 Actor Funcionario
 |||
 note left of Funcionario #aqua

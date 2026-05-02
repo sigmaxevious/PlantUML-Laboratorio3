@@ -5,7 +5,7 @@ header PAV
 
 title Caso de uso 3 - Registrar Lector
 
-group DSS - Registrar lector
+group DSS - Registrar lector - con memoria
 Actor Funcionario
 
 note left of Funcionario #aqua

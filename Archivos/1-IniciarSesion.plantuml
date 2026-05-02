@@ -11,7 +11,7 @@ header PAV - Laboratorio 3
 
 title Caso de uso 1 - Iniciar Sesión
 
-group DSS - Iniciar Sesión
+group DSS - Iniciar Sesión - con memoria
 |||
 actor Usuario
 |||

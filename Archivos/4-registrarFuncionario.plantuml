@@ -12,7 +12,7 @@ header PAV
 
 title Caso de uso - 4 - Registrar Funcionario
 
-group DSS - Registrar Funcionario
+group DSS - Registrar Funcionario - con memoria
 Actor Funcionario
 
 note left of Funcionario #aqua

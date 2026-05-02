@@ -9,9 +9,9 @@ sistema registra el puntaje o actualiza el ya existente, según corresponda '/
 !theme vibrant
 header PAV - Laboratorio 3
 
-title Caso de uso 9 - Puntuar Material
+title Caso de uso 9 - Puntuar Material 
 
-group DSS - Puntuar Material
+group DSS - Puntuar Material - con memoria
 |||
 actor Lector
 |||

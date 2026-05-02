@@ -8,9 +8,9 @@ elimina al lector junto con sus préstamos asociados.'/
 !theme vibrant
 header PAV - Laboratorio 3
 
-title Caso de uso 11 - Eliminar Lector
+title Caso de uso 11 - Eliminar Lector 
 
-group DSS - Eliminar Lector
+group DSS - Eliminar Lector - con memoria
 |||
 actor Funcionario
 |||

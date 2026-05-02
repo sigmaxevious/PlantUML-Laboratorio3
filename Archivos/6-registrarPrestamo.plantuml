@@ -11,7 +11,7 @@ presenta para confirmación y, si el
 funcionario confirma, registra el préstamo. '/
 title Caso de uso - 6 - Registrar Préstamo
 
-group DSS - Registrar Préstamo
+group DSS - Registrar Préstamo - con memoria
 |||
 actor Funcionario
 |||
