@@ -61,10 +61,15 @@ end
 
 |||
 
+opt cancela
+Funcionario -> ":Sistema" : cancelarRegistro()
+note right: Cancela limpia la memoria
+end 
 
 Funcionario -> ":Sistema" : confirmarRegistro()
 note right: El sistema registra el material y libera la memoria
 |||
+
 
 end
 @enduml

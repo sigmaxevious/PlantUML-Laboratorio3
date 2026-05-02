@@ -1,4 +1,5 @@
-@startuml
+@startuml consultarPuntajeMaterial
+!theme vibrant
 /' El caso de uso comienza cuando el actor desea consultar los puntajes de un
 material. El sistema muestra la lista de materiales registrados indicando su código
 y título, y el actor selecciona uno de ellos. A continuación, el sistema muestra el

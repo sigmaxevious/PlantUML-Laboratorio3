@@ -1,0 +1,25 @@
+@startuml DTOs_VerInfoMaterial
+!theme vibrant
+
+class DTMaterialInfo <<Datatype>> {
+    codigo: string
+    titulo: string
+    anioPublicacion: integer
+    tipoMaterial: string
+    puntajePromedio: float
+}
+
+class DTLibro <<Datatype>> {
+    autor: string
+    cantPaginas: integer
+}
+
+class DTRevista <<Datatype>> {
+    numEdicion: integer
+    esMensual: boolean
+}
+
+DTLibro --|> DTMaterialInfo
+DTRevista --|> DTMaterialInfo
+
+@enduml

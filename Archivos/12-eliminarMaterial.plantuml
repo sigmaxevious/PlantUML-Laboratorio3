@@ -1,4 +1,6 @@
-@startuml
+@startuml eliminarMaterial
+!theme vibrant
+header PAV
 /' El caso de uso comienza cuando un funcionario, que previamente ha iniciado
 sesión, desea eliminar un material. El sistema muestra la lista de materiales
 registrados indicando su código y título, y el funcionario selecciona uno. Luego, el

@@ -21,20 +21,20 @@ end note
 
 
 
-loop mientras no cancela && !inicio
+loop no cancela && !confirma
 
-Funcionario -> ":Sistema" : inicio : registrarLector (id:String,pass:String) : bool
+Funcionario -> ":Sistema" : registrarLector (id:String,nombre:String,pass:String, DTFecha) : DTLector
 
-note right: El sistema recuerda ID y Password
+note right: El sistema recuerda ID, Nombre, Password y Fecha
 
 |||
 |||
 opt cancela
-Funcionario -> ":Sistema" : cancelarInicioSesion()
+Funcionario -> ":Sistema" : cancelar()
 note right: Cancela limpia la memoria
 end
 
-
+Funcionario -> ":Sistema" : confirma:= confirmarRegistro() :bool
 
 
 

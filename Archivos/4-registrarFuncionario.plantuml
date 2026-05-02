@@ -25,7 +25,7 @@ password: string
 numEmpleado: integer
 end note
 
-loop mientras no cancela && !confirmado
+loop no cancela && !confirma
 
     Funcionario -> ":Sistema" : ingresarDatos(id:String, nombre:String, password:String, numEmpleado:Integer) : DTFuncionario
     note right: El sistema recuerda los datos ingresados\ny los presenta para confirmación
@@ -36,13 +36,15 @@ loop mientras no cancela && !confirmado
         Funcionario -> ":Sistema" : cancelarRegistro()
         note right: Cancela limpia la memoria
     end
+    |||
+    Funcionario -> ":Sistema" : confirma:= confirmarRegistro() :bool
+note right: El sistema registra al nuevo funcionario
 
 end
 
 |||
 
-Funcionario -> ":Sistema" : confirmarRegistro() : bool
-note right: El sistema registra al nuevo funcionario
+
 
 |||
 |||

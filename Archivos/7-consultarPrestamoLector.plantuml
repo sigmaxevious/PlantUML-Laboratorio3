@@ -9,12 +9,20 @@ préstamo y la cantidad de días permitidos para la devolución '/
 !theme vibrant
 header PAV - Laboratorio 3
 
-title DSS - Consultar Préstamos por Lector
+title DSS - Caso de uso 7
 
 group DSS - Consultar Préstamos por Lector
 |||
 actor Funcionario
+|||
 
+note left of Funcionario #aqua
+<<Datatypes>>
+DTLectorPrestamos
+-----------
+nombreLector: string
+prestamos: Set(DTPrestamo)
+end note
 
 note left of Funcionario #aqua
 <<Datatypes>>
@@ -35,7 +43,7 @@ mes: string
 anio: integer
 end note
 
-Funcionario -> ":Sistema" : consultarPrestamosLector(idLector: integer) : Set(DTPrestamo)
+Funcionario -> ":Sistema" : consultarPrestamosLector(idLector: string) : DTLectorPrestamos
 |||
 
 end

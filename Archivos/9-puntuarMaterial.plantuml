@@ -23,7 +23,7 @@ DTMaterial
 codigo: string
 titulo: string
 end note
-
+loop no cancela || !puntajeIngresado
 Lector -> ":Sistema" : obtenerMateriales() : Set(DTMaterial)
 |||
 
@@ -31,9 +31,13 @@ Lector -> ":Sistema" : seleccionarMaterial(codigo: string) : integer
 note right: El sistema recuerda el material seleccionado
 |||
 
-Lector -> ":Sistema" : ingresarPuntaje(puntaje: integer)
+Lector -> ":Sistema" : puntajeIngresado:= ingresarPuntaje(puntaje: integer): bool
 note right: El sistema registra o actualiza el puntaje y libera la memoria
 |||
+opt cancela
+        Lector -> ":Sistema" : cancelarRegistro()
+        note right: Cancela limpia la memoria
+    end
 
 end
 @enduml
