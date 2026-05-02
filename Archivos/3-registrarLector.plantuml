@@ -23,7 +23,7 @@ end note
 
 loop no cancela && !confirma
 
-Funcionario -> ":Sistema" : registrarLector (id:String,nombre:String,pass:String, DTFecha) : DTLector
+Funcionario -> ":Sistema" : ingresarDatosLector (id:String,nombre:String,pass:String, DTFecha) : DTLector
 
 note right: El sistema recuerda ID, Nombre, Password y Fecha
 

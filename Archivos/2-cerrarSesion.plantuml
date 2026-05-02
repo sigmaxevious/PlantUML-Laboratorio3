@@ -17,7 +17,7 @@ end note
 
 
 Usuario -> ":Sistema" : cerrarSesion()
-note right: El sistema libera la memoria
+note right: El sistema elimina la sesión activa en memoria
 
 
 
