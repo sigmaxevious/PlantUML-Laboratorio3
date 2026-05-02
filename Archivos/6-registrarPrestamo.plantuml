@@ -48,29 +48,29 @@ fechaPrestamo: DTFecha
 diasDevolucion: integer
 end note
 
-loop no cancela && !confirmado
+loop no cancela && !confirma
 
     Funcionario -> ":Sistema" : ingresarIDLector(id:String) : DTLector
-    note right: El sistema retorna los datos básicos del lector
+    note right: El sistema recuerda los datos básicos del lector
 
     |||
 
     Funcionario -> ":Sistema" : ingresarCodigoMaterial(codigo:String) : DTMaterial
-    note right: El sistema retorna la información del material
+    note right: El sistema recuerda la información del material
 
     |||
 
     Funcionario -> ":Sistema" : ingresarDatosPrestamo(fechaPrestamo:DTFecha, diasDevolucion:Integer) : DTDatosPrestamo
-    note right: El sistema recuerda fecha y días de devolución\ny presenta los datos para confirmación
+    note right: El sistema recuerda fecha y días de devolución
 
     |||
 
     opt cancela
-        Funcionario -> ":Sistema" : cancelarRegistro()
+        Funcionario -> ":Sistema" : cancelar()
         note right: Cancela limpia la memoria
     end
 |||
-Funcionario -> ":Sistema" : confirmarPrestamo() : bool
+Funcionario -> ":Sistema" : confirma:= confirmarPréstamo() : bool
 note right: El sistema registra el préstamo
 end
 

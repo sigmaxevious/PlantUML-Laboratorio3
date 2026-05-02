@@ -11,7 +11,7 @@ header PAV - Laboratorio 3
 
 title DSS - Caso de uso 7
 
-group DSS - Consultar Préstamos por Lector
+group DSS - Consultar Préstamos por Lector - Sin memoria
 |||
 actor Funcionario
 |||

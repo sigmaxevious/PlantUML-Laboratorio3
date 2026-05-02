@@ -27,13 +27,13 @@ end note
 
 loop no cancela && !confirma
 
-    Funcionario -> ":Sistema" : ingresarDatos(id:String, nombre:String, password:String, numEmpleado:Integer) : DTFuncionario
+    Funcionario -> ":Sistema" : ingresarDatosFuncionario(id:String, nombre:String, password:String, numEmpleado:Integer) : DTFuncionario
     note right: El sistema recuerda los datos ingresados\ny los presenta para confirmación
 
     |||
 
     opt cancela
-        Funcionario -> ":Sistema" : cancelarRegistro()
+        Funcionario -> ":Sistema" : cancelar()
         note right: Cancela limpia la memoria
     end
     |||

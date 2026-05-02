@@ -8,7 +8,7 @@ sistema muestra la informaci처n del material seleccionado y solicita confirmaci�
 de la operaci처n. Si el funcionario confirma, el sistema elimina el material.'/
 
 
-title Caso de uso 7
+title Eliminar Material - Caso de uso 12
 
 group DSS - Eliminar material
 Actor Funcionario
@@ -23,7 +23,7 @@ end note
 
 note left of Funcionario #aqua
 <<Datatypes>>
-DTMaterialDetalle
+DTMaterialInfo
 -----------
 codigo: string
 titulo: string
@@ -36,11 +36,11 @@ end note
 Funcionario -> ":Sistema" : listarMateriales() : Lista<DTMaterialResumen>
 note right: El sistema muestra la lista de materiales, con c처digo y titulo
 
-Funcionario -> ":Sistema" : seleccionarMaterial(codigo: String) : DTMaterialDetalle
+Funcionario -> ":Sistema" : seleccionarMaterial(codigo: String) : DTMaterialInfo
 note right: El sistema muestra la informaci처n del material seleccionado y solicita confirmaci처n
 
 opt cancela
-        Funcionario -> ":Sistema" : cancelarOperacion()
+        Funcionario -> ":Sistema" : cancelar()
         note right: Cancela el borrado
     end
 

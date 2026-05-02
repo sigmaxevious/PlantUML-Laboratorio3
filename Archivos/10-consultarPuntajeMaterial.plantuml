@@ -7,7 +7,7 @@ título del material, su puntaje promedio y la cantidad total de puntajes
 registrados para dicho material'/
 
 
-title Caso de uso 10
+title Caso de uso 10 - Consultar Puntaje de Material
 
 group DSS - Consultar puntaje de material
 Actor Actor
@@ -34,7 +34,7 @@ end note
 Actor -> ":Sistema" : listarMateriales() : Lista<DTMaterialResumen>
 note right: El sistema muestra la lista de materiales, con código y titulo
 
-Actor -> ":Sistema" : seleccionarMaterial(codigo:String) : DTMaterialDetalle
+Actor -> ":Sistema" : seleccionarMaterialPuntajes(codigo:String) : DTMaterialDetalle
 note right: El sistema muestra el título del material, su puntaje promedio y la cantidad de puntajes
 
 end

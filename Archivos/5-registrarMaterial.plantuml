@@ -11,65 +11,49 @@ funcionario confirma, registra el material'/
 !theme vibrant
 header PAV - Laboratorio 3
 
-title DSS - Registrar Material
+title Caso de uso 5 - Registrar Material
 
 group DSS - Registrar Material
 |||
 actor Funcionario
 |||
-
-note left of Funcionario #aqua
-<<Datatypes>>
-DTMaterial
------------
-codigo: string
-titulo: string
-anio: integer
-end note
-
-note left of Funcionario #aqua
-<<Datatypes>>
-DTLibro
------------
-autor: string
-cantPaginas: integer
-end note
-
-note left of Funcionario #aqua
-<<Datatypes>>
-DTRevista
------------
-numEdicion: integer
-esMensual: boolean
-end note
-
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+loop no cancela && !confirma
 Funcionario -> ":Sistema" : ingresarDatosMaterial(codigo: string, titulo: string, anio: integer)
 note right: El sistema recuerda el código, título y año
 |||
+opt cancela
+Funcionario -> ":Sistema" : cancelar()
+note right: Cancela limpia la memoria
+end 
 
 alt es Libro
     |||
-    Funcionario -> ":Sistema" : resumen:= ingresarDatosLibro(autor: string, cantPaginas: integer) : DTMaterial
+    Funcionario -> ":Sistema" : resumen:= ingresarDatosLibro(autor: string, cantPaginas: integer) : DTLibro
     note right: El sistema recuerda los datos específicos del tipo
     |||
 else es Revista
     |||
-    Funcionario -> ":Sistema" : resumen :=ingresarDatosRevista(numEdicion: integer, esMensual: boolean) : DTMaterial
+    Funcionario -> ":Sistema" : resumen :=ingresarDatosRevista(numEdicion: integer, esMensual: boolean) : DTRevista
     note right: El sistema recuerda los datos específicos del tipo
     |||
 end
 
 |||
 
-opt cancela
-Funcionario -> ":Sistema" : cancelarRegistro()
-note right: Cancela limpia la memoria
-end 
 
-Funcionario -> ":Sistema" : confirmarRegistro()
+
+Funcionario -> ":Sistema" : confirma:= confirmarRegistro() : bool
 note right: El sistema registra el material y libera la memoria
 |||
-
+end
 
 end
 @enduml

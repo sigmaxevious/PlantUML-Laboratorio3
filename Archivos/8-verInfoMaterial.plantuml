@@ -11,9 +11,9 @@
 !theme vibrant
 header PAV
 
-title Caso de uso - 8- Ver Información de Material
+title Caso de uso - 8- Ver Información de Material 
 
-group DSS - Ver Información de Material
+group DSS - Ver Información de Material - Sin memoria
 Actor Actor
 
 ' El actor puede ser un funcionario o un lector, pero para simplificar se representa como Actor
@@ -27,12 +27,14 @@ codigo: string
 titulo: string
 end note
 
-
+|||
+|||
+|||
+|||
 Actor -> ":Sistema" : listarMateriales() : Set<DTMaterialResumen>
 |||
 
-Actor -> ":Sistema" : seleccionarMaterial(codigo:String) : DTMaterial
-note right: El sistema recuerda código, título, año de publicación,\ntipo de material y puntaje promedio
+Actor -> ":Sistema" : seleccionarMaterial(codigo:String) : DTMaterialInfo
 
 
 |||

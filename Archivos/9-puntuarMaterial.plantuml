@@ -9,7 +9,7 @@ sistema registra el puntaje o actualiza el ya existente, según corresponda '/
 !theme vibrant
 header PAV - Laboratorio 3
 
-title DSS - Puntuar Material
+title Caso de uso 9 - Puntuar Material
 
 group DSS - Puntuar Material
 |||
@@ -24,20 +24,20 @@ codigo: string
 titulo: string
 end note
 loop no cancela || !puntajeIngresado
-Lector -> ":Sistema" : obtenerMateriales() : Set(DTMaterial)
+Lector -> ":Sistema" : listarMateriales() : Set(DTMaterial)
 |||
 
-Lector -> ":Sistema" : seleccionarMaterial(codigo: string) : integer
+Lector -> ":Sistema" : seleccionarMaterialAPuntuar(codigo: string) : integer
 note right: El sistema recuerda el material seleccionado
-|||
-
-Lector -> ":Sistema" : puntajeIngresado:= ingresarPuntaje(puntaje: integer): bool
-note right: El sistema registra o actualiza el puntaje y libera la memoria
 |||
 opt cancela
         Lector -> ":Sistema" : cancelarRegistro()
         note right: Cancela limpia la memoria
     end
+Lector -> ":Sistema" : puntajeIngresado:= ingresarPuntaje(puntaje: integer): bool
+note right: El sistema registra o actualiza el puntaje y libera la memoria
+|||
+
 
 end
 @enduml
