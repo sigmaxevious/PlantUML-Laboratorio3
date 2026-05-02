@@ -16,14 +16,14 @@ group DSS - Iniciar Sesión
 actor Usuario
 |||
 
-loop mientras no cancela && !sesionIniciada
+loop no cancela && !sesionIniciada
 
     Usuario -> .Sistema : sesionIniciada := iniciarSesion(id: string, password: string) : bool
     note right: El sistema recuerda la sesión del usuario si los datos son válidos
     |||
 
     opt cancela
-        Usuario -> .Sistema : cancelarInicioSesion()
+        Usuario -> .Sistema : cancelar()
         note right: Cancela limpia la memoria
     end
     |||
